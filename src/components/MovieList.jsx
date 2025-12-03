@@ -9,7 +9,11 @@ function MovieList() {
                 return (
                     <div key={movieObj.id} className="card">
                         <p>{movieObj.title}</p>
-                        <img src={movieObj.imgURL} alt="Movie poster" />
+
+                        { movieObj.imgURL 
+                            && <img src={movieObj.imgURL} alt="Movie poster" />
+                        }
+                        
                         <p>Year: {movieObj.year}</p>
                         <p>Rating: {movieObj.rating}</p>
                     </div>
