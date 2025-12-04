@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 function MovieSummary(props) {
     return (
@@ -13,6 +14,10 @@ function MovieSummary(props) {
 
             {/* invoke callback in the parent component */}
             <button onClick={() => { props.onDelete(props.movieDetails.id) }}>Delete</button>
+
+            <Link to={`/movies/${props.movieDetails.id}`}>
+                <button>More Details</button>
+            </Link>
         </div>
     )
 }
