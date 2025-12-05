@@ -39,9 +39,17 @@ function App() {
 
     // prevent page reload
     e.preventDefault();
-    
+
+    // find the id of the new movie
+    const movieIds = moviesToDisplay.map((movieObj, i, arr) => {
+      return movieObj.id;
+    });
+    const maxId = Math.max(...movieIds);
+    const nextId = maxId + 1
+
     // prepare an object with the details of the new movie
     const newMovie = {
+      id: nextId,
       title: title,
       year: year,
       imgURL: imageUrl
