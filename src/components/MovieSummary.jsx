@@ -10,7 +10,6 @@ function MovieSummary(props) {
             }
 
             <p>Year: {props.movieDetails.year}</p>
-            <p>Rating: {props.movieDetails.rating}</p>
 
             {/* invoke callback in the grandparent component */}
             <button onClick={() => { props.onDelete(props.movieDetails.id) }}>Delete</button>

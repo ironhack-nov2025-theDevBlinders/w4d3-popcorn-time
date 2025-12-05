@@ -15,6 +15,8 @@ function App() {
   const [moviesToDisplay, setMoviesToDisplay] = useState(movies)
 
   const [title, setTitle] = useState("")
+  const [year, setYear] = useState("")
+  const [imageUrl, setImageUrl] = useState("")
 
 
   const deleteMovie = (movieId) => {
@@ -40,7 +42,9 @@ function App() {
     
     // prepare an object with the details of the new movie
     const newMovie = {
-      title: title
+      title: title,
+      year: year,
+      imgURL: imageUrl
     }
 
     // prepare an array with the new list of movies
@@ -51,7 +55,8 @@ function App() {
 
     // clear form
     setTitle("")
-
+    setYear("")
+    setImageUrl("")
   }
 
 
@@ -64,13 +69,44 @@ function App() {
 
         <form onSubmit={handleSubmit}>
 
-          <input 
-            type="text" 
-            name="title" 
-            placeholder="enter the title" 
-            value={title}
-            onChange={(e) => { setTitle(e.target.value) }}
-          />
+          <label>
+            Title:
+            <input
+              type="text"
+              name="title"
+              placeholder="the godfather"
+              value={title}
+              onChange={(e) => { setTitle(e.target.value) }}
+            />
+          </label>
+          
+
+          <label>
+            Year:
+            <input
+              type="number"
+              name="year"
+              placeholder="1999"
+              min={1900}
+              max={2050}
+              required
+              value={year}
+              onChange={(e) => { setYear(e.target.value) }}
+            />
+          </label>
+
+
+          <label>
+            Image URL:
+            <input
+              type="url"
+              name="imageUrl"
+              placeholder="https://domain.com/image.jpg"
+              value={imageUrl}
+              onChange={(e) => { setImageUrl(e.target.value) }}
+            />
+          </label>
+
 
           <button>Create</button>
         </form>
